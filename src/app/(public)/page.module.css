@@ -1,0 +1,76 @@
+.hero {
+    background: linear-gradient(135deg, #FBF8F0 0%, #FFFFFF 50%, #FBF8F0 100%);
+    padding: var(--space-3xl) var(--space-lg);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at 30% 40%, rgba(194, 153, 47, 0.05) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.heroContent {
+    position: relative;
+    max-width: 640px;
+    margin: 0 auto;
+}
+
+.heroTitle {
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: var(--space-md);
+    letter-spacing: -0.02em;
+}
+
+.heroAccent {
+    color: var(--color-primary);
+}
+
+.heroSubtitle {
+    font-size: 1.1rem;
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+    margin-bottom: var(--space-xl);
+}
+
+.heroEmoji {
+    font-size: 1.3rem;
+}
+
+.divider {
+    width: 60px;
+    height: 3px;
+    background: var(--color-primary);
+    margin: 0 auto;
+    border-radius: 2px;
+}
+
+.errorBox {
+    max-width: var(--max-width);
+    margin: var(--space-xl) auto;
+    padding: var(--space-md) var(--space-lg);
+    background: #FEF2F2;
+    color: var(--color-error);
+    border-radius: var(--radius-md);
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+    .heroTitle {
+        font-size: 2rem;
+    }
+
+    .heroSubtitle {
+        font-size: 1rem;
+    }
+}
