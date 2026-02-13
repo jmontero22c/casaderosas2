@@ -2,6 +2,7 @@ import { supabase } from '@/lib/supabase/client';
 import { Product } from '@/types/database';
 import ProductStrip from '@/components/ProductStrip';
 import styles from './page.module.css';
+import Image from 'next/image';
 
 async function getProductsByCategory(slug: string): Promise<Product[]> {
   const { data, error } = await supabase
@@ -34,9 +35,17 @@ export default async function HomePage() {
     <>
       <section className={styles.hero}>
         <div className={styles.heroContent}>
-          <h1 className={styles.heroTitle}>
-            <span className={styles.heroAccent}>Casa de Rosas</span>
-          </h1>
+          <div className={styles.heroImage}>
+            <Image
+              src="/Logo.png"
+              alt="Hero"
+              width={400}
+              height={400}
+            />
+          </div>
+
+          <span className={styles.heroAccent}>Casa de Rosas</span>
+
           <p className={styles.heroSubtitle}>
             <span className={styles.heroEmoji}>🌸</span> Flores | Anchetas | Detalles
             <br />
@@ -52,12 +61,14 @@ export default async function HomePage() {
         title="Arreglos Florales"
         products={flores}
         viewAllHref="/flores"
+        id="flores"
       />
 
       <ProductStrip
         title="Anchetas"
         products={anchetas}
         viewAllHref="/anchetas"
+        id="detallitos"
       />
     </>
   );

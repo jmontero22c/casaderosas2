@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import styles from './Header.module.css';
+import Image from 'next/image';
 
 export default function Header() {
     const [menuOpen, setMenuOpen] = useState(false);
@@ -10,36 +11,44 @@ export default function Header() {
     return (
         <header className={styles.header}>
             <div className={styles.headerInner}>
+
+                {/* Logo */}
                 <Link href="/" className={styles.logo}>
-                    <span className={styles.logoIcon}>🌹</span>
+                    <span className={styles.logoIcon}>
+                        <Image
+                            src="/Logo.png"
+                            alt="Hero"
+                            width={50}
+                            height={50}
+                        />
+                    </span>
                     Casa de Rosas
                 </Link>
 
+                {/* Navegación Desktop */}
                 <nav className={styles.nav}>
                     <Link href="/" className={styles.navLink}>Inicio</Link>
-                    <Link href="/flores" className={styles.navLink}>Flores</Link>
-                    <Link href="/anchetas" className={styles.navLink}>Anchetas</Link>
+                    <Link href="/#flores" className={styles.navLink}>Flores</Link>
+                    <Link href="/#detallitos" className={styles.navLink}>Detallitos</Link>
+                    <Link href="/#contacto" className={styles.navLink}>Contacto</Link>
                 </nav>
 
+                {/* Botón Mobile */}
                 <button
                     className={styles.menuButton}
                     onClick={() => setMenuOpen(!menuOpen)}
-                    aria-label="Menú"
                 >
                     {menuOpen ? '✕' : '☰'}
                 </button>
             </div>
 
+            {/* Navegación Mobile */}
             <nav className={`${styles.mobileNav} ${menuOpen ? styles.open : ''}`}>
-                <Link href="/" className={styles.mobileNavLink} onClick={() => setMenuOpen(false)}>
-                    Inicio
-                </Link>
-                <Link href="/flores" className={styles.mobileNavLink} onClick={() => setMenuOpen(false)}>
-                    Flores
-                </Link>
-                <Link href="/anchetas" className={styles.mobileNavLink} onClick={() => setMenuOpen(false)}>
-                    Anchetas
-                </Link>
+                <Link href="/" onClick={() => setMenuOpen(false)}>Inicio</Link>
+                <Link href="/bienvenida" onClick={() => setMenuOpen(false)}>Bienvenida</Link>
+                <Link href="/#flores" onClick={() => setMenuOpen(false)}>Flores</Link>
+                <Link href="/#detallitos" onClick={() => setMenuOpen(false)}>Detallitos</Link>
+                <Link href="/#contacto" onClick={() => setMenuOpen(false)}>Contacto</Link>
             </nav>
         </header>
     );

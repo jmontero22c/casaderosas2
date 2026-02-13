@@ -2,7 +2,7 @@ import styles from './Footer.module.css';
 
 export default function Footer() {
     return (
-        <footer className={styles.footer}>
+        <footer id="contacto" className={styles.footer}>
             <div className={styles.footerInner}>
                 <div className={styles.footerSection}>
                     <h3>Casa de Rosas</h3>

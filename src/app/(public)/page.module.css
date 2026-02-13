@@ -23,16 +23,21 @@
     margin: 0 auto;
 }
 
-.heroTitle {
-    font-size: 2.8rem;
-    font-weight: 700;
-    color: var(--color-text);
-    margin-bottom: var(--space-md);
-    letter-spacing: -0.02em;
+.heroImage {
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius-md);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .heroAccent {
     color: var(--color-primary);
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 79px;
+    letter-spacing: -0.03em;
 }
 
 .heroSubtitle {

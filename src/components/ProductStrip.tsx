@@ -7,11 +7,12 @@ interface ProductStripProps {
     title: string;
     products: Product[];
     viewAllHref: string;
+    id?: string;
 }
 
-export default function ProductStrip({ title, products, viewAllHref }: ProductStripProps) {
+export default function ProductStrip({ title, products, viewAllHref, id }: ProductStripProps) {
     return (
-        <section className={styles.section}>
+        <section id={id} className={styles.section}>
             <div className={styles.sectionHeader}>
                 <h2 className={styles.title}>{title}</h2>
                 <Link href={viewAllHref} className={styles.viewAll}>

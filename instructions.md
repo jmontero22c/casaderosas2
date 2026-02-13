@@ -1,4 +1,4 @@
-# PROMT BASE — Plataforma de Reservas para Peluquerías
+# PROMT BASE — Plataforma de Reservas para Floristeria
 ## Objetivo del proyecto
 Desarrollar una **plataforma web venta de flores y anchetas** que permita a los negocios gestionar sus productos, y a los usuarios finales cotizar hacia un numero de whatsapp el articulo que quiera.
 La plataforma integra:
