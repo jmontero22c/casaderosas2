@@ -2,13 +2,13 @@
     position: sticky;
     top: 0;
     z-index: 100;
-    background: #f4f4f4;
+    background: #ffffff;
     height: 80px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 .headerInner {
-    max-width: 1200px;
+    /* max-width: 1200px; */
     margin: 0 auto;
     padding: 0 40px;
     height: 100%;
@@ -44,8 +44,8 @@
 
 .navLink {
     font-size: 1rem;
-    font-weight: 400;
-    color: #5a3a2e;
+    font-weight: 200;
+    /* color: #5a3a2e; */
     text-decoration: none;
     transition: opacity 0.3s ease;
 }

@@ -33,14 +33,19 @@
     color: var(--color-primary-dark);
 }
 
+.stripContainer {
+    position: relative;
+    max-width: var(--max-width);
+    margin: 0 auto;
+}
+
 .strip {
     display: flex;
     gap: var(--space-lg);
     overflow-x: auto;
     scroll-behavior: smooth;
     padding: var(--space-sm) var(--space-lg);
-    max-width: var(--max-width);
-    margin: 0 auto;
+    /* Hide scrollbar but keep functionality */
     -ms-overflow-style: none;
     scrollbar-width: none;
 }
@@ -54,6 +59,50 @@
     min-width: 240px;
 }
 
+.scrollButton {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: white;
+    border: 1px solid var(--color-border);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    color: var(--color-text);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.2s ease;
+    opacity: 0;
+    /* Hidden by default */
+    pointer-events: none;
+}
+
+/* Show buttons on hover of container */
+.stripContainer:hover .scrollButton {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.scrollButton:hover {
+    background-color: var(--color-primary);
+    color: white;
+    border-color: var(--color-primary);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.scrollLeft {
+    left: var(--space-sm);
+}
+
+.scrollRight {
+    right: var(--space-sm);
+}
+
 @media (max-width: 768px) {
     .cardWrapper {
         flex: 0 0 200px;
@@ -62,5 +111,12 @@
 
     .title {
         font-size: 1.25rem;
+    }
+
+    /* On mobile, usually let them swipe, but buttons can stay or be hidden depending on preference.
+       Often better to hide explicit buttons on touch devices if native scroll is obvious.
+    */
+    .scrollButton {
+        display: none;
     }
 }

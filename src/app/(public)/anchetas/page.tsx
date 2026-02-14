@@ -3,6 +3,7 @@ import { Product } from '@/types/database';
 import ProductCard from '@/components/ProductCard';
 import EmptyState from '@/components/EmptyState';
 import styles from '../catalog.module.css';
+import Link from 'next/link';
 
 export const metadata = {
     title: 'Anchetas — Casa de Rosas',
@@ -52,7 +53,11 @@ export default async function AnchetasPage() {
             ) : (
                 <div className={styles.grid}>
                     {products.map((product) => (
-                        <ProductCard key={product.id} product={product} />
+                        <div key={product.id} className={styles.cardWrapper}>
+                            <Link href={`/producto/${product.id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
+                                <ProductCard product={product} />
+                            </Link>
+                        </div>
                     ))}
                 </div>
             )}

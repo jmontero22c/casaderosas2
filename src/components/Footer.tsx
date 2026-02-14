@@ -26,7 +26,7 @@ export default function Footer() {
                     <h3>Contáctanos</h3>
                     <p>
                         📍 Valledupar, Cesar, Colombia<br />
-                        📱 +57 300 000 0000<br />
+                        📱 +57 300 4468890<br />
                         ✉️ info@casaderosas.com
                     </p>
                 </div>
