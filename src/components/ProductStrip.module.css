@@ -22,15 +22,18 @@
 .viewAll {
     font-size: 0.9rem;
     font-weight: 600;
-    color: var(--color-primary);
+    color: #fff;
     transition: color var(--transition-fast);
     display: flex;
     align-items: center;
     gap: var(--space-xs);
+    background-color: var(--color-primary);
+    border-radius: 25px;
+    padding: var(--space-xs) var(--space-md);
 }
 
 .viewAll:hover {
-    color: var(--color-primary-dark);
+    color: #000;
 }
 
 .stripContainer {

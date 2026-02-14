@@ -13,6 +13,8 @@
     font-weight: 700;
     color: var(--color-text);
     margin-bottom: var(--space-sm);
+    display: flex;
+    align-items: center;
 }
 
 .subtitle {

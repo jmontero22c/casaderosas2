@@ -4,6 +4,9 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Casa de Rosas",
   description: "Flores y anchetas — Plataforma de venta en línea",
+  icons: {
+    icon: '/Logo.png',
+  },
 };
 
 export default function RootLayout({

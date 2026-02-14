@@ -54,7 +54,6 @@ export default async function FloresPage() {
                 <div className={styles.grid}>
                     {products.map((product) => (
 
-                        // <ProductCard key={product.id} product={product} />
                         <div key={product.id} className={styles.cardWrapper}>
                             <Link href={`/producto/${product.id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
                                 <ProductCard product={product} />

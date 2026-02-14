@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { signOut } from '@/lib/supabase/auth';
 import styles from './AdminSidebar.module.css';
+import Image from 'next/image';
 
 const navItems = [
     { href: '/admin', icon: '📊', label: 'Dashboard' },
@@ -38,7 +39,9 @@ export default function AdminSidebar() {
 
             <aside className={`${styles.sidebar} ${open ? styles.open : ''}`}>
                 <div className={styles.logo}>
-                    <span className={styles.logoIcon}>🌹</span>
+                    <span className={styles.logoIcon}>
+                        <Image src="/Logo.png" alt="Logo" width={40} height={40} />
+                    </span>
                     Admin Panel
                 </div>
 

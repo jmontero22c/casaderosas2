@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { signIn } from '@/lib/supabase/auth';
 import styles from './page.module.css';
+import Image from 'next/image';
 
 export default function LoginPage() {
     const router = useRouter();
@@ -30,7 +31,9 @@ export default function LoginPage() {
     return (
         <div className={styles.loginPage}>
             <div className={styles.loginCard}>
-                <div className={styles.loginLogo}>🌹</div>
+                <div className={styles.loginLogo}>
+                    <Image src="/Logo.png" alt="Logo" width={100} height={100} />
+                </div>
                 <h1 className={styles.loginTitle}>Admin</h1>
                 <p className={styles.loginSubtitle}>Inicia sesión para gestionar tu tienda</p>
 
