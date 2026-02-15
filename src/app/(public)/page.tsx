@@ -4,6 +4,8 @@ import ProductStrip from '@/components/ProductStrip';
 import styles from './page.module.css';
 import Image from 'next/image';
 
+export const dynamic = 'force-dynamic';
+
 async function getProductsByCategory(slug: string): Promise<Product[]> {
   const { data, error } = await supabase
     .from('products')

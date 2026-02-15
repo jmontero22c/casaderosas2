@@ -6,8 +6,8 @@ import { notFound } from 'next/navigation';
 import { headers } from 'next/headers';
 import styles from './page.module.css';
 
-// Revalidate data periodically
-export const revalidate = 3600;
+// Force dynamic rendering for fresh data
+export const dynamic = 'force-dynamic';
 
 interface ProductPageProps {
     params: Promise<{

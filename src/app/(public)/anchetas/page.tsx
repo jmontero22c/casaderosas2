@@ -10,6 +10,8 @@ export const metadata = {
     description: 'Explora nuestra colección de anchetas y cestas de regalo.',
 };
 
+export const dynamic = 'force-dynamic';
+
 async function getAnchetas(): Promise<Product[]> {
     const { data, error } = await supabase
         .from('products')

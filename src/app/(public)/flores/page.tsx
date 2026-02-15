@@ -10,6 +10,8 @@ export const metadata = {
     description: 'Explora nuestra colección de arreglos florales.',
 };
 
+export const dynamic = 'force-dynamic';
+
 async function getFlores(): Promise<Product[]> {
     const { data, error } = await supabase
         .from('products')
