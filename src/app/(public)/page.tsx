@@ -3,6 +3,8 @@ import { Product } from '@/types/database';
 import ProductStrip from '@/components/ProductStrip';
 import styles from './page.module.css';
 import Image from 'next/image';
+import FallingPetals from '@/components/FallingPetals';
+import BannerSlider from '@/components/BannerSlider';
 
 export const dynamic = 'force-dynamic';
 
@@ -35,7 +37,19 @@ export default async function HomePage() {
 
   return (
     <>
+      <FallingPetals />
       <section className={styles.hero}>
+        <div className={styles.heroDecorationLeft}>
+          <Image
+            src="/flores-izq.png"
+            alt="Decoración floral izquierda"
+            width={300}
+            height={500}
+            className={styles.sideDecoration}
+            priority
+          />
+        </div>
+
         <div className={styles.heroContent}>
           <div className={styles.heroImage}>
             <Image
@@ -46,18 +60,21 @@ export default async function HomePage() {
             />
           </div>
 
-          <span className={styles.heroAccent}>Casa de Rosas</span>
-
-          <p className={styles.heroSubtitle}>
-            <span className={styles.heroEmoji}>🌸</span> Flores | Anchetas | Detalles
-            <br />
-            Creaciones hechas con amor para cada ocasión 💛
-          </p>
-          <div className={styles.divider} />
+          <div className={styles.heroTitle}>
+            <span className={styles.heroAccent}>Casa de Rosas</span>
+            <p className={styles.heroSubtitle}>
+              <span className={styles.heroEmoji}>🌸</span> Flores | Anchetas | Detalles
+              <br />
+              Creaciones hechas con amor para cada ocasión 💛
+            </p>
+            <div className={styles.divider} />
+          </div>
         </div>
       </section>
 
       {error && <div className={styles.errorBox}>{error}</div>}
+
+      <BannerSlider />
 
       <ProductStrip
         title="Arreglos Florales"
