@@ -37,52 +37,63 @@ const BANNERS: Banner[] = [
 
 export default function BannerSlider() {
     const [currentIndex, setCurrentIndex] = useState(0);
+    const [isPaused, setIsPaused] = useState(false);
 
     const nextSlide = useCallback(() => {
         setCurrentIndex((prev) => (prev + 1) % BANNERS.length);
     }, []);
 
     useEffect(() => {
-        const timer = setInterval(nextSlide, 5000);
+        if (isPaused) return;
+        const timer = setInterval(nextSlide, 4000);
         return () => clearInterval(timer);
-    }, [nextSlide]);
+    }, [nextSlide, isPaused]);
 
     return (
-        <div className={styles.sliderContainer}>
-            <div
-                className={styles.slideTrack}
-                style={{ transform: `translateX(-${currentIndex * 100}%)` }}
-            >
-                {BANNERS.map((banner) => (
-                    <div key={banner.id} className={styles.slide}>
-                        {banner.image.length > 0 &&
-                            <img
-                                src={banner.image}
-                                alt={banner.title}
-                                className={styles.slideImage}
-                            />}
+        <div
+            className={styles.sliderWrapper}
+            onMouseEnter={() => setIsPaused(true)}
+            onMouseLeave={() => setIsPaused(false)}
+        >
+            <div className={styles.sliderContainer}>
+                <div
+                    className={styles.slideTrack}
+                    style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+                >
+                    {BANNERS.map((banner, index) => (
                         <div
-                            className={styles.placeholder}
-                            style={{ background: banner.color }}
+                            key={banner.id}
+                            className={`${styles.slide} ${index === currentIndex ? styles.active : ''}`}
+                            onClick={() => index !== currentIndex && setCurrentIndex(index)}
+                            style={{ cursor: index !== currentIndex ? 'pointer' : 'default' }}
                         >
-                            <div className={styles.slideContent}>
-                                <h2 className={styles.slideTitle}>{banner.title}</h2>
-                                <p className={styles.slideSubtitle}>{banner.subtitle}</p>
+                            {banner.image.length > 0 &&
+                                <img
+                                    src={banner.image}
+                                    alt={banner.title}
+                                    className={styles.slideImage}
+                                />}
+                            <div
+                            >
+                                <div className={styles.slideContent}>
+                                    <p className={styles.slideSubtitle}>{banner.subtitle}</p>
+                                </div>
                             </div>
+                            <div className={styles.slideShadow} />
                         </div>
-                    </div>
-                ))}
-            </div>
+                    ))}
+                </div>
 
-            <div className={styles.controls}>
-                {BANNERS.map((_, index) => (
-                    <button
-                        key={index}
-                        className={`${styles.dot} ${index === currentIndex ? styles.activeDot : ''}`}
-                        onClick={() => setCurrentIndex(index)}
-                        aria-label={`Go to slide ${index + 1}`}
-                    />
-                ))}
+                <div className={styles.controls}>
+                    {BANNERS.map((_, index) => (
+                        <button
+                            key={index}
+                            className={`${styles.dot} ${index === currentIndex ? styles.activeDot : ''}`}
+                            onClick={() => setCurrentIndex(index)}
+                            aria-label={`Go to slide ${index + 1}`}
+                        />
+                    ))}
+                </div>
             </div>
         </div>
     );

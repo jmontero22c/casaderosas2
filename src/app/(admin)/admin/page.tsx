@@ -78,11 +78,6 @@ export default function AdminDashboard() {
                     <div className={styles.statValue}>{stats?.totalAnchetas ?? 0}</div>
                     <div className={styles.statLabel}>Anchetas</div>
                 </div>
-                <div className={styles.statCard}>
-                    <div className={styles.statIcon}>⚠️</div>
-                    <div className={styles.statValue}>{stats?.lowStock ?? 0}</div>
-                    <div className={styles.statLabel}>Stock bajo (≤3)</div>
-                </div>
             </div>
         </div>
     );

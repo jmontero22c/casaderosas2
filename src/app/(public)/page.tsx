@@ -27,7 +27,7 @@ export default async function HomePage() {
 
   try {
     [flores, anchetas] = await Promise.all([
-      getProductsByCategory('flores'),
+      getProductsByCategory('tradicionales'),
       getProductsByCategory('anchetas'),
     ]);
   } catch (e) {
@@ -63,7 +63,7 @@ export default async function HomePage() {
           <div className={styles.heroTitle}>
             <span className={styles.heroAccent}>Casa de Rosas</span>
             <p className={styles.heroSubtitle}>
-              <span className={styles.heroEmoji}>🌸</span> Flores | Anchetas | Detalles
+              FLORES, ARTE & CREACIONES
               <br />
               Creaciones hechas con amor para cada ocasión 💛
             </p>

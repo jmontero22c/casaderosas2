@@ -29,8 +29,8 @@ interface ProductForm {
 const emptyForm: ProductForm = {
     name: '',
     description: '',
-    price: '',
-    stock: '0',
+    price: '75000',
+    stock: '1',
     category_id: '',
     is_active: true,
 };
@@ -285,7 +285,6 @@ export default function ProductosPage() {
                                 type="number"
                                 value={form.price}
                                 onChange={(e) => setForm({ ...form, price: e.target.value })}
-                                placeholder="75000"
                                 min="0"
                             />
                         </div>

@@ -71,7 +71,6 @@ export default async function ProductPage({ params }: ProductPageProps) {
     const message = `Hola, me gustaría cotizar este producto:
     
 Nombre: ${product.name}
-Precio: ${formatPrice(product.price)}
 Link: ${productUrl}
 
 ¿Está disponible?`;
@@ -101,9 +100,9 @@ Link: ${productUrl}
 
                     <h1 className={styles.title}>{product.name}</h1>
 
-                    <div className={styles.price}>
+                    {/* <div className={styles.price}>
                         {formatPrice(product.price)}
-                    </div>
+                    </div> */}
 
                     <div className={styles.stockStatus}>
                         {product.stock > 0 ? (

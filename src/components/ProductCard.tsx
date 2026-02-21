@@ -31,10 +31,10 @@ export default function ProductCard({ product, onClick }: ProductCardProps) {
             </div>
             <div className={styles.info}>
                 <h3 className={styles.name}>{product.name}</h3>
-                <p className={styles.price}>{formatPrice(product.price)}</p>
+                {/* <p className={styles.price}>{formatPrice(product.price)}</p>
                 {product.stock <= 0 && (
                     <p className={styles.outOfStock}>Agotado</p>
-                )}
+                )} */}
             </div>
         </div>
     );

@@ -48,9 +48,9 @@
 
 .heroAccent {
     color: var(--color-primary);
-    font-family: 'Fraunces', serif;
-    font-weight: 500;
-    font-size: 79px;
+    font-family: 'GoodVibrationsROBScript', serif;
+    font-weight: 400;
+    font-size: 100px;
     letter-spacing: -0.03em;
 }
 
@@ -58,6 +58,7 @@
     font-size: 1.1rem;
     color: var(--color-text-secondary);
     line-height: 1.7;
+    letter-spacing: 0.05em;
     margin-bottom: var(--space-xl);
 }
 
