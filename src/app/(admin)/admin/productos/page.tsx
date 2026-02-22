@@ -6,6 +6,7 @@ import { uploadProductImage } from '@/lib/supabase/storage';
 import { Product, Category } from '@/types/database';
 import LoadingSpinner from '@/components/LoadingSpinner';
 import EmptyState from '@/components/EmptyState';
+import ImageModal from '@/components/ImageModal';
 import styles from './page.module.css';
 
 function formatPrice(price: number): string {
@@ -41,6 +42,7 @@ export default function ProductosPage() {
     const [loading, setLoading] = useState(true);
     const [showModal, setShowModal] = useState(false);
     const [editingId, setEditingId] = useState<string | null>(null);
+    const [viewingImageUrl, setViewingImageUrl] = useState<string | null>(null);
 
     const [form, setForm] = useState<ProductForm>(emptyForm);
     const [currentImageUrl, setCurrentImageUrl] = useState<string>('');
@@ -186,7 +188,14 @@ export default function ProductosPage() {
                                 <tr key={p.id}>
                                     <td>
                                         {p.image_url ? (
-                                            <img src={p.image_url} alt={p.name} width={40} height={40} style={{ borderRadius: 4, objectFit: 'cover' }} />
+                                            <img
+                                                src={p.image_url}
+                                                alt={p.name}
+                                                width={40}
+                                                height={40}
+                                                style={{ borderRadius: 4, objectFit: 'cover', cursor: 'pointer' }}
+                                                onClick={() => setViewingImageUrl(p.image_url)}
+                                            />
                                         ) : (
                                             <div style={{ width: 40, height: 40, background: '#eee', borderRadius: 4 }} />
                                         )}
@@ -313,6 +322,13 @@ export default function ProductosPage() {
                         </div>
                     </div>
                 </div>
+            )}
+
+            {viewingImageUrl && (
+                <ImageModal
+                    imageUrl={viewingImageUrl}
+                    onClose={() => setViewingImageUrl(null)}
+                />
             )}
         </div>
     );

@@ -2,6 +2,7 @@
 import { supabase } from '@/lib/supabase/client';
 import { Product } from '@/types/database';
 import Link from 'next/link';
+import ProductImage from '@/components/ProductImage';
 import { notFound } from 'next/navigation';
 import { headers } from 'next/headers';
 import styles from './page.module.css';
@@ -83,7 +84,7 @@ Link: ${productUrl}
             <div className={styles.productWrapper}>
                 <div className={styles.imageContainer}>
                     {product.image_url ? (
-                        <img
+                        <ProductImage
                             src={product.image_url}
                             alt={product.name}
                             className={styles.image}

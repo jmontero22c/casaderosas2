@@ -33,6 +33,11 @@
     font-size: 1.8rem;
 }
 
+.logoText {
+    font-family: 'GoodVibrationsROBScript', serif;
+    font-size: 2.3rem;
+}
+
 /* NAV CENTRADO */
 .nav {
     position: absolute;

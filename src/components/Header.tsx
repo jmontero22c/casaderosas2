@@ -22,7 +22,9 @@ export default function Header() {
                             height={50}
                         />
                     </span>
-                    Casa de Rosas
+                    <span className={styles.logoText}>
+                        Casa de Rosas
+                    </span>
                 </Link>
 
                 {/* Navegación Desktop */}
