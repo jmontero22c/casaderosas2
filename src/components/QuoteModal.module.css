@@ -1,0 +1,226 @@
+/* ── Backdrop ───────────────────────────────────────────── */
+.backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+    background: rgba(31, 26, 20, 0.45);
+    backdrop-filter: blur(3px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    animation: fadeIn 0.15s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* ── Modal ──────────────────────────────────────────────── */
+.modal {
+    position: relative;
+    background: var(--color-bg);
+    border-radius: var(--radius-xl);
+    padding: 32px 28px 28px;
+    width: 100%;
+    max-width: 480px;
+    box-shadow: var(--shadow-lg);
+    animation: slideUp 0.2s ease;
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(12px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Cerrar ─────────────────────────────────────────────── */
+.closeBtn {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-text-light);
+    background: transparent;
+    transition: background var(--transition-fast), color var(--transition-fast);
+}
+
+.closeBtn:hover {
+    background: var(--color-surface);
+    color: var(--color-text);
+}
+
+/* ── Encabezado ─────────────────────────────────────────── */
+.title {
+    font-family: var(--font-serif);
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: 6px;
+    padding-right: 24px;
+}
+
+.subtitle {
+    font-size: 0.88rem;
+    color: var(--color-text-secondary);
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+/* ── Preview producto ───────────────────────────────────── */
+.productPreview {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: #FEF0EE;
+    border: 1px solid #F5DADA;
+    border-radius: var(--radius-md);
+    padding: 12px 14px;
+    margin-bottom: 20px;
+}
+
+.previewImgWrap {
+    width: 72px;
+    height: 72px;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    flex-shrink: 0;
+    background: #F9E4E1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.previewImg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.previewPlaceholder {
+    font-size: 1.8rem;
+}
+
+.previewInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    min-width: 0;
+}
+
+.previewName {
+    font-family: var(--font-serif);
+    font-weight: 600;
+    font-size: 0.97rem;
+    color: var(--color-text);
+    line-height: 1.3;
+}
+
+.previewCategory {
+    font-size: 0.8rem;
+    color: var(--color-text-secondary);
+}
+
+/* ── Campos ─────────────────────────────────────────────── */
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 16px;
+}
+
+.label {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--color-text-secondary);
+}
+
+.textarea,
+.input {
+    background: var(--color-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: 10px 14px;
+    font-size: 0.9rem;
+    color: var(--color-text);
+    font-family: inherit;
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+    resize: vertical;
+}
+
+.textarea:focus,
+.input:focus {
+    outline: none;
+    border-color: var(--color-whatsapp);
+    box-shadow: 0 0 0 3px rgba(27, 110, 74, 0.12);
+}
+
+.textarea::placeholder,
+.input::placeholder {
+    color: var(--color-text-light);
+}
+
+/* ── Acciones ───────────────────────────────────────────── */
+.actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 24px;
+}
+
+.cancelBtn {
+    flex: 1;
+    height: 44px;
+    border-radius: 999px;
+    border: 1px solid var(--color-border);
+    background: var(--color-card);
+    color: var(--color-text-secondary);
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: background var(--transition-fast);
+}
+
+.cancelBtn:hover {
+    background: var(--color-surface);
+}
+
+.sendBtn {
+    flex: 2;
+    height: 44px;
+    border-radius: 999px;
+    background: var(--color-whatsapp);
+    color: #fff;
+    font-size: 0.9rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: background var(--transition-fast), transform var(--transition-fast);
+}
+
+.sendBtn:hover {
+    background: var(--color-whatsapp-dark);
+    transform: translateY(-1px);
+}
+
+/* ── Responsive ─────────────────────────────────────────── */
+@media (max-width: 520px) {
+    .modal {
+        padding: 24px 18px 20px;
+    }
+
+    .actions {
+        flex-direction: column-reverse;
+    }
+
+    .cancelBtn,
+    .sendBtn {
+        flex: none;
+        width: 100%;
+    }
+}

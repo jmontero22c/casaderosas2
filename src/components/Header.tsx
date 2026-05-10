@@ -30,8 +30,8 @@ export default function Header() {
                 {/* Navegación Desktop */}
                 <nav className={styles.nav}>
                     <Link href="/" className={styles.navLink}>Inicio</Link>
-                    <Link href="/#flores" className={styles.navLink}>Flores</Link>
-                    <Link href="/#detallitos" className={styles.navLink}>Detallitos</Link>
+                    <Link href="/flores" className={styles.navLink}>Flores</Link>
+                    <Link href="/anchetas" className={styles.navLink}>Detallitos</Link>
                     <Link href="/#contacto" className={styles.navLink}>Contacto</Link>
                 </nav>
 

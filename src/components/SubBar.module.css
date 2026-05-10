@@ -1,0 +1,109 @@
+.subbar {
+    position: sticky;
+    top: var(--header-height);
+    z-index: 50;
+    background: var(--color-bg);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 var(--space-lg);
+    height: var(--subbar-height);
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+/* ── Contador ───────────────────────────────────────────── */
+.count {
+    font-size: 0.82rem;
+    color: var(--color-text-light);
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+/* ── Buscador ───────────────────────────────────────────── */
+.search {
+    position: relative;
+    flex: 1;
+    max-width: 420px;
+    margin-left: auto;
+}
+
+.searchIcon {
+    position: absolute;
+    left: 13px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 15px;
+    height: 15px;
+    color: var(--color-text-light);
+    pointer-events: none;
+}
+
+.search input {
+    width: 100%;
+    height: 40px;
+    background: var(--color-card);
+    border: 1px solid var(--color-border);
+    border-radius: 999px;
+    padding: 0 16px 0 40px;
+    font-size: 0.9rem;
+    color: var(--color-text);
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.search input::placeholder {
+    color: var(--color-text-light);
+}
+
+.search input:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px var(--color-primary-bg);
+}
+
+/* ── Ordenar ────────────────────────────────────────────── */
+.sortBtn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    height: 40px;
+    padding: 0 16px;
+    border: 1px solid var(--color-border);
+    border-radius: 999px;
+    background: var(--color-card);
+    font-size: 0.88rem;
+    color: var(--color-text-secondary);
+    white-space: nowrap;
+    flex-shrink: 0;
+    transition: background var(--transition-fast);
+}
+
+.sortBtn:hover {
+    background: var(--color-surface);
+}
+
+/* ── Responsive ─────────────────────────────────────────── */
+@media (max-width: 640px) {
+    .inner {
+        flex-wrap: wrap;
+        height: auto;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        gap: 10px;
+    }
+
+    .count {
+        display: none;
+    }
+
+    .search {
+        width: 100%;
+        max-width: none;
+        margin-left: 0;
+        order: -1;
+    }
+}

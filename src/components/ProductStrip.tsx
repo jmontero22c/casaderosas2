@@ -51,9 +51,7 @@ export default function ProductStrip({ title, products, viewAllHref, id }: Produ
                 <div className={styles.strip} ref={scrollContainerRef}>
                     {products.map((product) => (
                         <div key={product.id} className={styles.cardWrapper}>
-                            <Link href={`/producto/${product.id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
-                                <ProductCard product={product} />
-                            </Link>
+                            <ProductCard product={product} />
                         </div>
                     ))}
                 </div>
